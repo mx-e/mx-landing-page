@@ -22,6 +22,15 @@ const CenterCircle = styled.div`
   align-items: center;
 `;
 
+const StyledLink = styled.a`
+  text-decoration: none;
+`;
+
+const StyledListItem = styled.li`
+  color: ${(props) => (props.deactivated ? "gray" : "#444444")};
+  cursor: ${(props) => (props.deactivated ? "not-allowed" : "pointer")};
+`;
+
 const MenuItems = [
   { title: "blog", href: "https://blog.mx-e.net", deactivated: true },
   { title: "projects", href: "/projects", deactivated: true },
@@ -35,8 +44,20 @@ const MenuItems = [
 const MenuList = () => (
   <ul>
     {MenuItems.map(({ title, href, deactivated }) => {
-      const item = <li>{title + (deactivated ? "\t(in progress)" : "")}</li>;
-      return <>{!deactivated ? <a href={href}>{item}</a> : <>{item}</>}</>;
+      const item = (
+        <StyledListItem deactivated={deactivated}>
+          {title + (deactivated ? "\t(in progress)" : "")}
+        </StyledListItem>
+      );
+      return (
+        <>
+          {!deactivated ? (
+            <StyledLink href={href}>{item}</StyledLink>
+          ) : (
+            <>{item}</>
+          )}
+        </>
+      );
     })}
   </ul>
 );
