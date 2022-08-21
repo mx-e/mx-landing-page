@@ -7,9 +7,9 @@ const AppWrap = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Courier New', monospace;;
+  font-family: "Courier New", monospace;
   user-select: none;
-`
+`;
 
 const CenterCircle = styled.div`
   width: 64px;
@@ -20,22 +20,34 @@ const CenterCircle = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`
+`;
 
 const MenuItems = [
-  {title: "blog"}, {title: "LinkedIn"}
-]
+  { title: "blog", href: "https://blog.mx-e.net", deactivated: true },
+  { title: "projects", href: "/projects", deactivated: true },
+  { title: "github", href: "https://github.com/mx-e" },
+  {
+    title: "linked_in",
+    href: "https://www.linkedin.com/in/maximilian-eißler-b51b9213b/",
+  },
+];
 
+const MenuList = () => (
+  <ul>
+    {MenuItems.map(({ title, href, deactivated }) => {
+      const item = <li>{title + (deactivated ? "\t(in progress)" : "")}</li>;
+      return <>{!deactivated ? <a href={href}>{item}</a> : <>{item}</>}</>;
+    })}
+  </ul>
+);
 
 function App() {
   return (
     <AppWrap>
       <CenterCircle>
-        <p>
-          mx-e
-        </p>
+        <p>mx-e</p>
       </CenterCircle>
-
+      <MenuList />
     </AppWrap>
   );
 }
