@@ -35,6 +35,7 @@ const MenuItems = [
   { title: "blog", href: "https://blog.mx-e.net", deactivated: true },
   { title: "projects", href: "/projects", deactivated: true },
   { title: "github", href: "https://github.com/mx-e" },
+  { title: "twitter", href: "https://twitter.com/mx_e_" },
   {
     title: "linked_in",
     href: "https://www.linkedin.com/in/maximilian-eißler-b51b9213b/",
