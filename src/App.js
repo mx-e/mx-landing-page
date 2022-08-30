@@ -32,7 +32,7 @@ const StyledListItem = styled.li`
 `;
 
 const MenuItems = [
-  { title: "blog", href: "https://blog.mx-e.net", deactivated: true },
+  { title: "blog", href: "https://blog.mx-e.net" },
   { title: "projects", href: "/projects", deactivated: true },
   { title: "github", href: "https://github.com/mx-e" },
   { title: "twitter", href: "https://twitter.com/mx_e_" },
